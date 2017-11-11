@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                             xmlns:app="http://schemas.android.com/apk/res-auto"
+                                             xmlns:tools="http://schemas.android.com/tools"
+                                             android:layout_width="match_parent"
+                                             android:layout_height="wrap_content"
+                                             android:background="?android:attr/selectableItemBackground"
+                                             android:orientation="vertical"
+                                             android:padding="2dp">
+
+    <ImageView
+        android:id="@+id/iv_album_image"
+        android:layout_width="@dimen/album_image_size"
+        android:layout_height="@dimen/album_image_size"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@mipmap/app_logo"
+        tools:ignore="ContentDescription"/>
+
+    <TextView
+        android:id="@+id/tv_album_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="TextView"
+        android:textColor="@color/colorInfoHeading"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/iv_album_image"
+        app:layout_constraintTop_toTopOf="@+id/iv_album_image"/>
+
+    <TextView
+        android:id="@+id/tv_album_playcount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:text="Score:"
+        android:textColor="@color/colorInfoText"
+        android:textSize="12sp"
+        app:layout_constraintLeft_toLeftOf="@+id/tv_album_name"
+        app:layout_constraintTop_toBottomOf="@+id/tv_album_name"/>
+
+</android.support.constraint.ConstraintLayout>

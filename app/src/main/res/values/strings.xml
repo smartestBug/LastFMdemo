@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">last.fm demo</string>
+    <string name="title_activity_artist_albums">Artist albums</string>
+    <string name="error_loading_more_artists">Error loading next page of artists!</string>
+    <string name="app_title_for_toolbar">Popular artists in </string>
+    <string name="loading_error">Loading error…</string>
+    <string name="loading">Loading…</string>
+    <string name="country_ukraine">Ukraine</string>
+    <string name="country_thailand">Thailand</string>
+    <string name="country_mexico">Mexico</string>
+    <string name="albums">Albums</string>
+    <string name="playcount">Playcount:</string>
+    <string name="listeners">Listeners:</string>
+</resources>

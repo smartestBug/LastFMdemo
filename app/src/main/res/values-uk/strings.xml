@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">last.fm demo</string>
+    <string name="title_activity_artist_albums">Альбоми виконавців</string>
+    <string name="error_loading_more_artists">Помилка завантаження артистів!</string>
+    <string name="app_title_for_toolbar">Популярні виконавці в </string>
+    <string name="loading_error">Помилка при завантаженні…</string>
+    <string name="loading">Завантаження…</string>
+    <string name="country_ukraine">Україна</string>
+    <string name="country_thailand">Тайланд</string>
+    <string name="country_mexico">Мексика</string>
+    <string name="albums">Альбоми</string>
+    <string name="playcount">Прослуховувань:</string>
+    <string name="listeners">Слухачи:</string>
+</resources>

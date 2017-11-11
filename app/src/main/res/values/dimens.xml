@@ -1,0 +1,12 @@
+<resources>
+    <dimen name="app_bar_height">300dp</dimen>
+    <dimen name="text_margin">16dp</dimen>
+    <dimen name="text_header">20dp</dimen>
+    <dimen name="cards_elevation">1dp</dimen>
+    <dimen name="no_network_icon_size">25dp</dimen>
+    <dimen name="albums_icon_size">30dp</dimen>
+    <dimen name="album_image_size">50dp</dimen>
+    <dimen name="artist_image_size">80dp</dimen>
+    <dimen name="spinner_flag_size">25dp</dimen>
+    <dimen name="spinner_width">160dp</dimen>
+</resources>
