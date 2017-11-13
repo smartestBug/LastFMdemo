@@ -67,7 +67,7 @@ public class MainActivity extends BaseActivity<BasePresenter.MainActivityPresent
     }
 
     private void setupNetworkStateListener() {
-        RxBus.getInstance().listen(NetworkChangeEvent.class).subscribe((next)-> {
+        RxBus.getInstance().listen(NetworkChangeEvent.class).subscribe((next) -> {
             updateNetworkStatus();
         });
     }

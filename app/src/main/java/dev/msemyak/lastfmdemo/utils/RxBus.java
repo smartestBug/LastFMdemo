@@ -7,8 +7,7 @@ public class RxBus {
     private static volatile RxBus sRxBus = null;
     private PublishSubject<Object> mPublishSubject = PublishSubject.create();
 
-    private RxBus() {
-    }
+    private RxBus() {    }
 
     public static RxBus getInstance() {
         if (sRxBus == null) {
