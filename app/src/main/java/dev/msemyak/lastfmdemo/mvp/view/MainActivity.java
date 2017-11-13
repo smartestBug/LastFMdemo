@@ -12,9 +12,6 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.ViewFlipper;
 
-import org.greenrobot.eventbus.EventBus;
-import org.greenrobot.eventbus.Subscribe;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,6 +27,7 @@ import dev.msemyak.lastfmdemo.mvp.view.adapters.CountryAdapter;
 import dev.msemyak.lastfmdemo.mvp.view.adapters.CountryAdapter.CountryInfo;
 import dev.msemyak.lastfmdemo.mvp.view.adapters.RVAdapterArtists;
 import dev.msemyak.lastfmdemo.utils.NetworkChangeEvent;
+import dev.msemyak.lastfmdemo.utils.RxBus;
 
 public class MainActivity extends BaseActivity<BasePresenter.MainActivityPresenter> implements BaseView.MainView, BaseView.RVItemClickListener {
 
@@ -61,10 +59,17 @@ public class MainActivity extends BaseActivity<BasePresenter.MainActivityPresent
         showScreen(R.id.screen_loading_artists);
 
         setupSpinner();
+        setupNetworkStateListener();
         updateNetworkStatus();
 
         myPresenter.getArtistsAndDisplay(countries.get(0).getQueryName());
 
+    }
+
+    private void setupNetworkStateListener() {
+        RxBus.getInstance().listen(NetworkChangeEvent.class).subscribe((next)-> {
+            updateNetworkStatus();
+        });
     }
 
     private void setupSpinner() {
@@ -128,11 +133,6 @@ public class MainActivity extends BaseActivity<BasePresenter.MainActivityPresent
         else ivNetwork.setVisibility(View.VISIBLE);
     }
 
-    @Subscribe
-    public void onMessageEvent(NetworkChangeEvent event) {
-        updateNetworkStatus();
-    }
-
     private void showScreen(int screen_id) {
         viewFlipper.setDisplayedChild(viewFlipper.indexOfChild(viewFlipper.findViewById(screen_id)));
     }
@@ -183,18 +183,6 @@ public class MainActivity extends BaseActivity<BasePresenter.MainActivityPresent
         userDetailsIntent.putExtra("artist_name", artistName);
         userDetailsIntent.putExtra("artist_url", artistImageUrl);
         startActivity(userDetailsIntent);
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-        EventBus.getDefault().register(this);
-    }
-
-    @Override
-    protected void onStop() {
-        EventBus.getDefault().unregister(this);
-        super.onStop();
     }
 
     @Override

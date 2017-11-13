@@ -15,4 +15,5 @@
     <color name="colorInfoBackground">#ffffff</color>
     <color name="colorInfoHeading">#777777</color>
     <color name="colorInfoText">#999999</color>
+    <color name="white_transparent">#b4ffffff</color>
 </resources>

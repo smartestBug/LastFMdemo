@@ -49,25 +49,12 @@ public class RetrofitClient {
                 return chain.proceed(request);
             };
 
-            // http request / response logger
-            final Interceptor LoggingInterceptor = chain -> {
-                Request request = chain.request();
-                Log.d("TAGLAST", String.format("Sending request %s %nHeaders: %n%s", request.url(), request.headers()));
-
-                Response response = chain.proceed(request);
-                Log.d("TAGLAST", String.format("Received response for %s %nHeaders: %n%s", response.request().url(), response.headers()));
-
-                return response;
-            };
-
             File cacheFile = new File(AppBoss.getContext().getCacheDir(), "GUMegaCache");
-            Log.d("TAGLAST", "Default cache dir: " + AppBoss.getContext().getCacheDir().toString());
             Cache cache = new Cache(cacheFile, 10 * 1024 * 1024); //10Mb
             OkHttpClient client = new OkHttpClient().newBuilder()
                     .cache(cache)
                     .addNetworkInterceptor(NetworkCacheInterceptor)
                     .addInterceptor(ApplicationOfflineInterceptor)
-                    .addInterceptor(LoggingInterceptor)
                     .build();
 
             retrofit = new Retrofit.Builder()
